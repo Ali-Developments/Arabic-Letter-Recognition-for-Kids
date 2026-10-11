@@ -59,6 +59,7 @@ def test_recognize_letter_known_test_samples():
         data = response.json()
 
         assert data["success"] is True
+        assert "request_id" in data and data["request_id"] is not None
         pred = data["prediction"]
         assert pred["letter"] == expected_char, f"Expected {expected_char}, got {pred['letter']}"
         assert pred["class_id"] == int(cid_str)

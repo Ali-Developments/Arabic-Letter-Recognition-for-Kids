@@ -119,13 +119,14 @@ def preprocess_image_for_model(
 
     meta["stages"]["binary"] = binary
 
-    # 5. Connected Component Analysis with Dot Preservation & Frame Filtering
+    # 5. Connected Component Analysis with Dot Preservation & Frame/Line Filtering
     cleaned_binary, cc_info = extract_character_with_dots(binary, return_metadata=True)
     meta.update(cc_info)
     meta["stages"]["cleaned"] = cleaned_binary
 
     if meta["status"] != "valid":
         zeros = np.zeros(target_size, dtype=np.float32)
+        meta["stages"]["final"] = (zeros * 255).astype(np.uint8)
         return (zeros, meta) if return_metadata else zeros
 
     # 6. Extract Bounding Box of all preserved components
@@ -134,6 +135,7 @@ def preprocess_image_for_model(
         meta["status"] = "blank"
         meta["message"] = "No clear handwritten letter detected."
         zeros = np.zeros(target_size, dtype=np.float32)
+        meta["stages"]["final"] = (zeros * 255).astype(np.uint8)
         return (zeros, meta) if return_metadata else zeros
 
     x, y, bw, bh = cv2.boundingRect(coords)
@@ -157,7 +159,8 @@ def extract_character_with_dots(
 ) -> Union[np.ndarray, Tuple[np.ndarray, Dict]]:
     """
     Extracts the main character body and all associated Arabic dots.
-    Filters out camera guide frames, blank paper, and multiple letters.
+    Filters out camera guide frames, blank paper, multiple letters,
+    and ruled notebook lines (both horizontal lines and vertical border margins).
 
     Returns:
         cleaned_binary_mask (or (cleaned_binary_mask, info_dict) if return_metadata=True)
@@ -172,8 +175,38 @@ def extract_character_with_dots(
         }
         return (np.zeros_like(binary_img), info) if return_metadata else np.zeros_like(binary_img)
 
+    img_h, img_w = binary_img.shape[:2]
+    cleaned = binary_img.copy()
+
+    # --- Phase 1: Suppress Ruled Notebook Lines & Long Border Lines ---
+    # 1. Detect thin, wide horizontal ruled lines (spans >= 55% of image width)
+    h_len = max(40, int(img_w * 0.55))
+    h_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (h_len, 1))
+    h_lines = cv2.morphologyEx(cleaned, cv2.MORPH_OPEN, h_kernel)
+
+    # 2. Detect vertical border lines (only those touching left/right frame edges)
+    v_len = max(40, int(img_h * 0.55))
+    v_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (1, v_len))
+    v_lines = cv2.morphologyEx(cleaned, cv2.MORPH_OPEN, v_kernel)
+
+    num_v, labels_v, stats_v, _ = cv2.connectedComponentsWithStats(v_lines, connectivity=8)
+    v_border_mask = np.zeros_like(cleaned)
+    for idx in range(1, num_v):
+        vx = stats_v[idx, cv2.CC_STAT_LEFT]
+        vw = stats_v[idx, cv2.CC_STAT_WIDTH]
+        # Only suppress vertical lines that are adjacent to outer borders (leaving Alef protected in center)
+        if vx <= 8 or (vx + vw) >= img_w - 8:
+            v_border_mask[labels_v == idx] = 255
+
+    # Subtract detected ruled lines and border marks
+    if cv2.countNonZero(h_lines) > 0:
+        cleaned = cv2.subtract(cleaned, h_lines)
+    if cv2.countNonZero(v_border_mask) > 0:
+        cleaned = cv2.subtract(cleaned, v_border_mask)
+
+    # --- Phase 2: Connected Component Analysis ---
     num_labels, labels, stats, centroids = cv2.connectedComponentsWithStats(
-        binary_img, connectivity=8
+        cleaned, connectivity=8
     )
 
     if num_labels <= 1:
@@ -185,11 +218,9 @@ def extract_character_with_dots(
         }
         return (np.zeros_like(binary_img), info) if return_metadata else np.zeros_like(binary_img)
 
-    img_h, img_w = binary_img.shape[:2]
     areas = stats[1:, cv2.CC_STAT_AREA]
     sorted_cc_indices = np.argsort(areas)[::-1] + 1  # 1-indexed
 
-    # Filter out outer border / guide frame components (spans > 60% in both dimensions, fill ratio < 0.15, and has pixels at all 4 corners)
     valid_cc_indices = []
     for idx in sorted_cc_indices:
         cx = stats[idx, cv2.CC_STAT_LEFT]
@@ -198,6 +229,27 @@ def extract_character_with_dots(
         ch = stats[idx, cv2.CC_STAT_HEIGHT]
         c_area = stats[idx, cv2.CC_STAT_AREA]
 
+        touches_left = (cx <= 3)
+        touches_right = ((cx + cw) >= img_w - 3)
+        touches_top = (cy <= 3)
+        touches_bottom = ((cy + ch) >= img_h - 3)
+
+        # A. Filter residual horizontal ruled lines and border fragments
+        # Note: Arabic letter basins (like Baa) can have aspect ratio ~4.5 with thickness ~20px.
+        # True ruled lines are thin (ch <= 6px) or extremely stretched (w / ch >= 8.0).
+        is_horiz_line = (cw > 0.40 * img_w and (cw / max(1, ch) >= 8.0 or ch <= 6)) or \
+                        ((touches_left or touches_right) and (cw / max(1, ch) >= 6.0 and ch <= 8)) or \
+                        (touches_left and touches_right and (cw / max(1, ch) >= 4.0))
+        if is_horiz_line:
+            continue
+
+        # B. Filter residual vertical border lines touching image edges
+        is_vert_line = ((touches_top and touches_bottom) and (ch / max(1, cw) >= 6.0)) or \
+                       ((touches_left or touches_right) and ch > 0.30 * img_h and (ch / max(1, cw) >= 6.0 or cw <= 6))
+        if is_vert_line:
+            continue
+
+        # C. Filter hollow guide frame / outer box components
         is_large = (cw > 0.60 * img_w and ch > 0.60 * img_h)
         is_hollow = ((c_area / float(cw * ch)) < 0.15)
         if is_large and is_hollow:
@@ -208,7 +260,8 @@ def extract_character_with_dots(
             c3 = np.any(comp_mask[cy + ch - pad:cy + ch, cx:cx + pad])
             c4 = np.any(comp_mask[cy + ch - pad:cy + ch, cx + cw - pad:cx + cw])
             if c1 and c2 and c3 and c4:
-                continue  # Guide frame / border box
+                continue
+
         valid_cc_indices.append(idx)
 
     if not valid_cc_indices:
@@ -220,20 +273,22 @@ def extract_character_with_dots(
         }
         return (np.zeros_like(binary_img), info) if return_metadata else np.zeros_like(binary_img)
 
+    # 1. Identify Candidate Main Body Component:
+    # Prefer substantial components that are not tiny specks
     max_label = valid_cc_indices[0]
     max_area = stats[max_label, cv2.CC_STAT_AREA]
 
     # Multiple Letter Check:
-    # If second largest valid component is also substantial (> 35% of max) and horizontally separated
+    # If second largest valid component is also substantial (> 40% of max, > 150px) and horizontally separated
     if len(valid_cc_indices) > 1:
         second_label = valid_cc_indices[1]
         second_area = stats[second_label, cv2.CC_STAT_AREA]
-        if second_area > 0.35 * max_area and second_area > 150:
+        if second_area > 0.40 * max_area and second_area > 150:
             c1_x, c1_w = stats[max_label, cv2.CC_STAT_LEFT], stats[max_label, cv2.CC_STAT_WIDTH]
             c2_x, c2_w = stats[second_label, cv2.CC_STAT_LEFT], stats[second_label, cv2.CC_STAT_WIDTH]
             h_distance = abs((c1_x + c1_w / 2.0) - (c2_x + c2_w / 2.0))
             min_width = min(c1_w, c2_w)
-            if h_distance > min_width * 1.2:
+            if h_distance > min_width * 1.3:
                 info = {
                     "status": "multiple_letters",
                     "message": "Please write only one letter inside the frame.",
@@ -248,13 +303,14 @@ def extract_character_with_dots(
     body_h = stats[max_label, cv2.CC_STAT_HEIGHT]
 
     # Generous envelope for Arabic dots (dots can be placed above, below, or slightly offset)
-    x_expand = int(body_w * 0.7)
-    y_expand = int(body_h * 1.3)
+    x_expand = int(body_w * 0.75)
+    y_top_expand = int(body_h * 1.5)
+    y_bot_expand = int(body_h * 1.5)
 
     env_x_min = max(0, body_x - x_expand)
     env_x_max = min(img_w, body_x + body_w + x_expand)
-    env_y_min = max(0, body_y - y_expand)
-    env_y_max = min(img_h, body_y + body_h + y_expand)
+    env_y_min = max(0, body_y - y_top_expand)
+    env_y_max = min(img_h, body_y + body_h + y_bot_expand)
 
     kept_mask = np.zeros_like(binary_img, dtype=np.uint8)
     kept_mask[labels == max_label] = 255
@@ -262,14 +318,14 @@ def extract_character_with_dots(
 
     min_dot_area = max(2, int(max_area * 0.003))
 
-    for label in valid_cc_indices:
-        if label == max_label:
-            continue
+    for label in valid_cc_indices[1:]:
         comp_area = stats[label, cv2.CC_STAT_AREA]
         cx, cy = centroids[label]
 
+        # Component must lie within the spatial bounding envelope of the letter body
         if env_x_min <= cx <= env_x_max and env_y_min <= cy <= env_y_max:
-            if min_dot_area <= comp_area <= (max_area * 0.5):
+            # Component must be reasonable dot/diacritic size relative to body
+            if min_dot_area <= comp_area <= (max_area * 0.60):
                 kept_mask[labels == label] = 255
                 dots_preserved += 1
 

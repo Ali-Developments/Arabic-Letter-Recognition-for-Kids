@@ -332,3 +332,80 @@ button:disabled {
   font-size: 1.2rem;
   font-weight: bold;
 }
+
+/* Camera Diagnostics & Debugging Panel */
+.camera-debug-panel {
+  margin-top: 16px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.camera-debug-panel summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #38bdf8;
+  outline: none;
+  margin-bottom: 8px;
+}
+
+.debug-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.debug-table td {
+  padding: 4px 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.debug-table td:first-child {
+  color: var(--text-muted);
+  width: 45%;
+}
+
+.debug-table td:last-child {
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.debug-alert {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.debug-alert.warning {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: #f59e0b;
+  color: #fde68a;
+}
+
+.debug-alert.success {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #10b981;
+  color: #6ee7b7;
+}
+
+.raw-capture-preview {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.raw-capture-preview img {
+  max-width: 160px;
+  border: 2px solid #38bdf8;
+  border-radius: 8px;
+  margin-top: 6px;
+}
+

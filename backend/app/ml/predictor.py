@@ -100,11 +100,18 @@ class ArabicPredictor:
         self.model_loaded = True
         self.model.eval()
 
-    def predict_from_bytes(self, image_bytes: bytes, top_k: int = 3) -> Dict:
+    def predict_from_bytes(
+        self,
+        image_bytes: bytes,
+        top_k: int = 3,
+        request_id: Optional[str] = None,
+        save_debug: bool = True,
+    ) -> Dict:
         """
         End-to-end prediction from raw image bytes.
         Returns dictionary formatted for API responses.
         Handles early rejection for blank paper, glare, extreme dark, or multiple letters.
+        Saves step-by-step diagnostic images to debug/real_camera/<request_id>/ for auditing.
         """
         # 1. Decode image bytes
         cv_img = decode_image_bytes(image_bytes)
@@ -113,6 +120,40 @@ class ArabicPredictor:
         preprocessed, prep_meta = preprocess_image_for_model(
             cv_img, target_size=(32, 32), return_metadata=True
         )
+
+        # 2b. Debug saving for real-camera auditing
+        if save_debug and request_id:
+            try:
+                import cv2
+                debug_dir = Path(__file__).resolve().parent.parent.parent.parent / "debug" / "real_camera" / request_id
+                debug_dir.mkdir(parents=True, exist_ok=True)
+
+                # Save original received
+                cv2.imwrite(str(debug_dir / "original_received.jpg"), cv_img)
+
+                stages = prep_meta.get("stages", {})
+                if "gray" in stages:
+                    cv2.imwrite(str(debug_dir / "grayscale.png"), stages["gray"])
+                if "binary" in stages:
+                    cv2.imwrite(str(debug_dir / "threshold.png"), stages["binary"])
+                if "cleaned" in stages:
+                    cv2.imwrite(str(debug_dir / "cleaned.png"), stages["cleaned"])
+                    # Create colored components visualization
+                    num_cc, _, stats_cc, _ = cv2.connectedComponentsWithStats(stages["cleaned"])
+                    comp_vis = cv2.cvtColor(stages["cleaned"], cv2.COLOR_GRAY2BGR)
+                    for c_i in range(1, num_cc):
+                        x, y, w, h = stats_cc[c_i, :4]
+                        cv2.rectangle(comp_vis, (x, y), (x + w, y + h), (0, 255, 0), 1)
+                    cv2.imwrite(str(debug_dir / "components.png"), comp_vis)
+
+                if "final" in stages:
+                    # Save final model input (also resized to 28x28 if requested)
+                    cv2.imwrite(str(debug_dir / "final_32x32.png"), stages["final"])
+                    final_28 = cv2.resize(stages["final"], (28, 28), interpolation=cv2.INTER_AREA)
+                    cv2.imwrite(str(debug_dir / "final_28x28.png"), final_28)
+            except Exception as e:
+                # Debug saving failure must not crash inference
+                pass
 
         # Early rejection handling (blank, multiple letters, extreme lighting)
         if prep_meta["status"] != "valid":
@@ -125,6 +166,7 @@ class ArabicPredictor:
                 "name_ar": None,
                 "message": prep_meta["message"] or "No clear handwritten letter detected.",
                 "top_candidates": [],
+                "request_id": request_id,
             }
 
         # 3. Convert to PyTorch Tensor [1, 1, 32, 32]
@@ -165,4 +207,5 @@ class ArabicPredictor:
             "name_ar": meta_top1["name_ar"] if accepted else None,
             "message": message,
             "top_candidates": top_candidates,
+            "request_id": request_id,
         }

@@ -177,4 +177,21 @@ Evaluated across threshold grid to minimize false acceptances for children's lea
 - Model inference mean: **3.70 ms**
 - End-to-end latency: **8.26 ms**
 
+---
+
+## Step 4.5: Physical Mobile Camera Validation Status
+
+- **Status:** Pipeline prepared & hardened; physical hardware evaluation pending real device captures.
+- **Model Checkpoint:** `ml/models/final_candidate_model.pt` (ArabicCNN, 8.97 MB, strictly preserved).
+- **Camera Preprocessing Enhancements:**
+  - Browser guide-frame coordinate mapping with 15% safety padding implemented.
+  - Multi-stage morphological and component-level ruled notebook line suppression active.
+  - Edge-touching border margin removal active.
+  - Arabic dot preservation confirmed 100% across canonical dotted letters.
+  - Debug request tracing with unique `request_id` operational.
+  - Configurable privacy debug logging via `DEBUG_CAMERA_IMAGES` environment variable.
+- **Physical Samples Evaluated:** 0 real mobile captures provided in workspace.
+- **Production Status:** Ready for client demo & local evaluation; physical device collection required prior to full production deployment claim.
+- **Reference Document:** See [docs/PHYSICAL_MOBILE_VALIDATION.md](file:///d:/Freelancing-Projects/Writing-Detection/docs/PHYSICAL_MOBILE_VALIDATION.md) for full protocol and requirements.
+
 

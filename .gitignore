@@ -24,6 +24,7 @@ venv.bak/
 *.pem
 *.key
 *.cert
+certs/
 
 # Operating System files
 .DS_Store
@@ -54,3 +55,4 @@ ml/models/*
 scratch/
 tmp/
 temp/
+debug/

@@ -67,9 +67,19 @@ async def recognize_letter(image: UploadFile = File(...)):
             detail=f"Failed to read image stream: {str(e)}",
         )
 
+    # Generate unique request trace ID
+    import uuid
+    request_id = f"req_{int(time.time())}_{uuid.uuid4().hex[:8]}"
+
+    # Check debug camera images environment variable (defaults to false for child privacy compliance)
+    import os
+    save_debug = os.getenv("DEBUG_CAMERA_IMAGES", "false").lower() in ("true", "1", "yes")
+
     # Perform prediction
     try:
-        pred_dict = predictor.predict_from_bytes(image_bytes, top_k=3)
+        pred_dict = predictor.predict_from_bytes(
+            image_bytes, top_k=3, request_id=request_id, save_debug=save_debug
+        )
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
@@ -101,6 +111,7 @@ async def recognize_letter(image: UploadFile = File(...)):
 
     return RecognitionResponse(
         success=True,
+        request_id=request_id,
         prediction=prediction,
         processing_time_ms=round(latency_ms, 2),
         message=pred_dict.get("message"),

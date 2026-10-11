@@ -13,6 +13,7 @@ class LetterPrediction(BaseModel):
 
 class RecognitionResponse(BaseModel):
     success: bool = Field(..., description="True if inference succeeded")
+    request_id: Optional[str] = Field(None, description="Unique trace ID for this recognition request")
     prediction: Optional[LetterPrediction] = Field(None, description="Prediction details")
     processing_time_ms: float = Field(..., description="Processing and inference latency in milliseconds")
     message: Optional[str] = Field(None, description="Status or guidance message (e.g. if rejected)")

@@ -43,14 +43,17 @@
         <button id="btn-start-camera" class="btn-primary">
           <span>📹</span> فتح الكاميرا (Open Camera)
         </button>
+        <button id="btn-capture-recognize" class="btn-primary" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%);" disabled>
+          <span>⚡</span> التقاط وتعرّف فوري (Capture & Recognize)
+        </button>
         <button id="btn-capture" class="btn-secondary" disabled>
-          <span>📸</span> التقاط (Capture)
+          <span>📸</span> التقاط فقط (Capture)
+        </button>
+        <button id="btn-recognize" class="btn-secondary" disabled>
+          <span>✨</span> تعرّف (Recognize)
         </button>
         <button id="btn-retake" class="btn-secondary" disabled>
           <span>🔄</span> إعادة (Retake)
-        </button>
-        <button id="btn-recognize" class="btn-primary" disabled>
-          <span>✨</span> تعرّف (Recognize)
         </button>
       </div>
 
@@ -64,6 +67,35 @@
           <span>🎲</span> حرف آخر (Next Letter)
         </button>
       </div>
+
+      <!-- Raw Captured Preview (Step 15: Verify frame before API) -->
+      <div id="raw-capture-box" class="raw-capture-preview" style="display: none;">
+        <span style="font-size: 0.8rem; color: var(--text-muted);">معاينة الإطار الملتقط (Raw Captured Frame):</span>
+        <div><img id="raw-captured-thumb" alt="Raw Capture Preview"></div>
+      </div>
+
+      <!-- Development Camera Diagnostic Panel -->
+      <details class="camera-debug-panel" id="camera-debug-panel" open>
+        <summary>🔧 تشخيص الكاميرا والمتصفح (Camera & Environment Diagnostics)</summary>
+        <div id="debug-security-alert"></div>
+        <table class="debug-table">
+          <tbody>
+            <tr><td>Secure Context (window.isSecureContext)</td><td id="diag-secure">-</td></tr>
+            <tr><td>Protocol & Host</td><td id="diag-host">-</td></tr>
+            <tr><td>getUserMedia Available</td><td id="diag-gum">-</td></tr>
+            <tr><td>User Agent</td><td id="diag-ua" style="font-size: 0.7rem; word-break: break-all;">-</td></tr>
+            <tr><td>Stream Active</td><td id="diag-stream-active">No</td></tr>
+            <tr><td>Video Dimensions</td><td id="diag-video-dim">-</td></tr>
+            <tr><td>Facing Mode / Camera</td><td id="diag-facing">-</td></tr>
+            <tr><td>Capture Pipeline State</td><td id="diag-pipe-state" style="color: #38bdf8;">READY</td></tr>
+            <tr><td>Last Blob Info</td><td id="diag-blob-info">-</td></tr>
+            <tr><td>API Endpoint URL</td><td id="diag-api-url" style="font-size: 0.72rem; word-break: break-all;">-</td></tr>
+            <tr><td>Last Error Name</td><td id="diag-err-name" style="color: #f87171;">None</td></tr>
+            <tr><td>Last Error Message</td><td id="diag-err-msg" style="color: #fca5a5;">None</td></tr>
+          </tbody>
+        </table>
+        <div id="debug-error-detail" style="margin-top: 8px; font-size: 0.72rem; color: #f87171; white-space: pre-wrap; display: none;"></div>
+      </details>
     </section>
 
     <!-- Right Column: AI Result & Game Reaction -->
@@ -83,6 +115,10 @@
         <!-- Technical Prediction Details -->
         <div class="prediction-details">
           <div class="stat-item">
+            <span class="stat-label">الحرف المطلوب (Expected)</span>
+            <span id="stat-expected-char" class="stat-value arabic-large" style="color: #38bdf8;">ب</span>
+          </div>
+          <div class="stat-item">
             <span class="stat-label">الحرف المكتشف (Detected)</span>
             <span id="stat-detected-char" class="stat-value arabic-large">-</span>
           </div>
@@ -97,6 +133,10 @@
           <div class="stat-item">
             <span class="stat-label">الحالة (Status)</span>
             <span id="stat-accepted" class="stat-value">-</span>
+          </div>
+          <div class="stat-item" style="grid-column: span 2;">
+            <span class="stat-label">معرّف الطلب (Trace ID)</span>
+            <span id="stat-request-id" class="stat-value" style="font-size: 0.85rem; font-family: monospace; color: #94a3b8;">-</span>
           </div>
         </div>
       </div>
