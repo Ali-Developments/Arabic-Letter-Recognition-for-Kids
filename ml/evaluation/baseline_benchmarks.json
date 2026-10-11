@@ -1,0 +1,16 @@
+{
+  "model": "ArabicCNN (Baseline)",
+  "training_data": "Hijja Child Train",
+  "test_accuracy": 90.15,
+  "macro_f1": 90.1,
+  "dotted_accuracy": 87.69,
+  "dotted_samples_count": 1007,
+  "params": 2346076,
+  "checkpoint_size_mb": 8.97,
+  "load_time_ms": 17.7,
+  "latency_mean_ms": 1.1,
+  "latency_median_ms": 1.03,
+  "latency_p95_ms": 1.48,
+  "accepted_wrong_rate": 4.68,
+  "accepted_wrong_count": 88
+}

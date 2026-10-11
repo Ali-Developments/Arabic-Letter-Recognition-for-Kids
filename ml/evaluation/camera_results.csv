@@ -1,0 +1,71 @@
+file,condition,true_letter,predicted_letter,confidence,top2_margin,accepted,correct,processing_time_ms,failure_reason
+tests/camera_samples/clean/clean_00_alef.jpg,clean,ا,ا,0.9962,0.9941,True,True,11.09,
+tests/camera_samples/clean/clean_01_baa.jpg,clean,ب,ي,0.9695,0.9428,True,False,6.32,Misclassified as ي (conf 0.97)
+tests/camera_samples/clean/clean_02_taa.jpg,clean,ت,,0.6327,0.3508,False,False,6.16,The handwriting was not clear enough (63% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/clean/clean_03_thaa.jpg,clean,ث,ث,0.8742,0.7761,True,True,8.67,
+tests/camera_samples/clean/clean_04_jeem.jpg,clean,ج,ح,0.9373,0.8797,True,False,8.4,Misclassified as ح (conf 0.94)
+tests/camera_samples/clean/clean_06_khaa.jpg,clean,خ,خ,0.9945,0.9903,True,True,6.25,
+tests/camera_samples/clean/clean_08_dhaal.jpg,clean,ذ,,0.6292,0.2598,False,False,6.31,The handwriting was not clear enough (63% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/clean/clean_10_zaay.jpg,clean,ز,ز,0.8806,0.7616,True,True,6.56,
+tests/camera_samples/shadow/shadow_00_alef.jpg,shadow,ا,,0.6058,0.3476,False,False,6.3,The handwriting was not clear enough (61% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/shadow/shadow_01_baa.jpg,shadow,ب,ب,0.9993,0.9986,True,True,6.46,
+tests/camera_samples/shadow/shadow_02_taa.jpg,shadow,ت,ت,0.8883,0.786,True,True,6.63,
+tests/camera_samples/shadow/shadow_03_thaa.jpg,shadow,ث,ث,0.9843,0.9706,True,True,9.27,
+tests/camera_samples/shadow/shadow_04_jeem.jpg,shadow,ج,ج,0.9853,0.9737,True,True,8.2,
+tests/camera_samples/shadow/shadow_06_khaa.jpg,shadow,خ,خ,0.9995,0.9991,True,True,6.01,
+tests/camera_samples/low_light/lowlight_02_taa.jpg,low_light,ت,ت,0.9918,0.9841,True,True,8.8,
+tests/camera_samples/low_light/lowlight_03_thaa.jpg,low_light,ث,ث,0.9738,0.9521,True,True,10.87,
+tests/camera_samples/low_light/lowlight_04_jeem.jpg,low_light,ج,ج,0.9989,0.998,True,True,8.9,
+tests/camera_samples/low_light/lowlight_06_khaa.jpg,low_light,خ,خ,0.9996,0.9993,True,True,7.76,
+tests/camera_samples/low_light/lowlight_08_dhaal.jpg,low_light,ذ,ذ,0.9091,0.8738,True,True,7.75,
+tests/camera_samples/bright_light/bright_04_jeem.jpg,bright_light,ج,ج,0.988,0.9774,True,True,5.88,
+tests/camera_samples/bright_light/bright_06_khaa.jpg,bright_light,خ,خ,0.9999,0.9998,True,True,9.79,
+tests/camera_samples/bright_light/bright_08_dhaal.jpg,bright_light,ذ,ز,0.8583,0.7168,True,False,7.12,Misclassified as ز (conf 0.86)
+tests/camera_samples/bright_light/bright_10_zaay.jpg,bright_light,ز,,0.4838,0.1747,False,False,6.72,The handwriting was not clear enough (48% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/rotated/rotated_01_baa.jpg,rotated,ب,ي,0.9822,0.9715,True,False,6.18,Misclassified as ي (conf 0.98)
+tests/camera_samples/rotated/rotated_04_jeem.jpg,rotated,ج,,0.6752,0.3541,False,False,8.45,The handwriting was not clear enough (68% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/rotated/rotated_11_seen.jpg,rotated,س,س,0.9893,0.9804,True,True,6.35,
+tests/camera_samples/rotated/rotated_13_saad.jpg,rotated,ص,ص,0.8658,0.747,True,True,8.19,
+tests/camera_samples/rotated/rotated_24_noon.jpg,rotated,ن,,0.3976,0.1149,False,False,6.24,The handwriting was not clear enough (40% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/perspective/perspective_00_alef.jpg,perspective,ا,,0.5526,0.2559,False,False,6.06,The handwriting was not clear enough (55% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/perspective/perspective_02_taa.jpg,perspective,ت,ت,0.7721,0.5836,True,True,6.28,
+tests/camera_samples/perspective/perspective_08_dhaal.jpg,perspective,ذ,ذ,0.8137,0.7531,True,True,6.06,
+tests/camera_samples/perspective/perspective_12_sheen.jpg,perspective,ش,ش,0.9992,0.9987,True,True,6.12,
+tests/camera_samples/perspective/perspective_27_yaa.jpg,perspective,ي,,0.4416,0.0714,False,False,6.32,The handwriting was not clear enough (44% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/pencil/pencil_01_baa.jpg,pencil,ب,ب,0.8453,0.7594,True,True,6.0,
+tests/camera_samples/pencil/pencil_02_taa.jpg,pencil,ت,ت,0.995,0.9903,True,True,6.74,
+tests/camera_samples/pencil/pencil_04_jeem.jpg,pencil,ج,ج,0.999,0.9982,True,True,8.5,
+tests/camera_samples/pencil/pencil_13_saad.jpg,pencil,ص,ه,0.7974,0.6019,True,False,6.16,Misclassified as ه (conf 0.80)
+tests/camera_samples/pencil/pencil_16_dhah.jpg,pencil,ظ,ظ,0.9567,0.9135,True,True,8.41,
+tests/camera_samples/pen/pen_00_alef.jpg,pen,ا,ا,1.0,1.0,True,True,6.39,
+tests/camera_samples/pen/pen_03_thaa.jpg,pen,ث,ث,0.824,0.6774,True,True,6.43,
+tests/camera_samples/pen/pen_06_khaa.jpg,pen,خ,خ,0.9973,0.9952,True,True,11.8,
+tests/camera_samples/pen/pen_15_tah.jpg,pen,ط,ه,0.8467,0.7821,True,False,11.01,Misclassified as ه (conf 0.85)
+tests/camera_samples/pen/pen_24_noon.jpg,pen,ن,,0.7345,0.5936,False,False,11.33,The handwriting was not clear enough (73% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/small_letter/small_01_baa.jpg,small_letter,ب,,0.6167,0.2411,False,False,12.59,The handwriting was not clear enough (62% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/small_letter/small_07_daal.jpg,small_letter,د,,0.6642,0.5179,False,False,10.75,The handwriting was not clear enough (66% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/small_letter/small_10_zaay.jpg,small_letter,ز,ز,0.9796,0.961,True,True,11.21,
+tests/camera_samples/small_letter/small_11_seen.jpg,small_letter,س,س,0.999,0.9984,True,True,10.43,
+tests/camera_samples/large_letter/large_00_alef.jpg,large_letter,ا,ا,1.0,1.0,True,True,10.41,
+tests/camera_samples/large_letter/large_04_jeem.jpg,large_letter,ج,ح,0.7524,0.5121,True,False,11.28,Misclassified as ح (conf 0.75)
+tests/camera_samples/large_letter/large_12_sheen.jpg,large_letter,ش,ش,0.9987,0.9974,True,True,11.3,
+tests/camera_samples/large_letter/large_13_saad.jpg,large_letter,ص,ص,0.9137,0.8586,True,True,11.3,
+tests/camera_samples/faint_dots/faint_dots_01_baa.jpg,faint_dots,ب,ب,0.9977,0.9954,True,True,10.74,
+tests/camera_samples/faint_dots/faint_dots_02_taa.jpg,faint_dots,ت,ت,0.9423,0.8861,True,True,10.59,
+tests/camera_samples/faint_dots/faint_dots_03_thaa.jpg,faint_dots,ث,,0.5644,0.2608,False,False,11.7,The handwriting was not clear enough (56% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/faint_dots/faint_dots_04_jeem.jpg,faint_dots,ج,ج,0.9855,0.9736,True,True,11.32,
+tests/camera_samples/faint_dots/faint_dots_06_khaa.jpg,faint_dots,خ,خ,0.9994,0.9989,True,True,10.84,
+tests/camera_samples/faint_dots/faint_dots_08_dhaal.jpg,faint_dots,ذ,ذ,0.9643,0.9519,True,True,11.01,
+tests/camera_samples/faint_dots/faint_dots_16_dhah.jpg,faint_dots,ظ,ظ,0.9965,0.993,True,True,11.44,
+tests/camera_samples/faint_dots/faint_dots_27_yaa.jpg,faint_dots,ي,,0.4546,0.1019,False,False,11.69,The handwriting was not clear enough (45% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/clutter/clutter_01_baa.jpg,clutter,ب,,0.6231,0.4804,False,False,10.9,The handwriting was not clear enough (62% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/clutter/clutter_08_dhaal.jpg,clutter,ذ,,0.6231,0.4804,False,False,10.56,The handwriting was not clear enough (62% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/clutter/clutter_11_seen.jpg,clutter,س,س,0.9876,0.9763,True,True,10.5,
+tests/camera_samples/clutter/clutter_24_noon.jpg,clutter,ن,,0.6231,0.4804,False,False,10.93,The handwriting was not clear enough (62% confidence). Please hold the paper steady under good light and try again!
+tests/camera_samples/blank/blank_1.jpg,blank,,,0.0,0.0,False,True,5.16,
+tests/camera_samples/blank/blank_2.jpg,blank,,,0.0,0.0,False,True,5.38,
+tests/camera_samples/blank/blank_3.jpg,blank,,,0.0,0.0,False,True,5.2,
+tests/camera_samples/blank/blank_4.jpg,blank,,,0.0,0.0,False,True,5.16,
+tests/camera_samples/invalid/invalid_black_frame.jpg,invalid,,,0.0,0.0,False,True,2.5,
+tests/camera_samples/invalid/invalid_white_washout.jpg,invalid,,,0.0,0.0,False,True,2.16,
+tests/camera_samples/invalid/invalid_multiple_letters.jpg,invalid,,,0.0,0.0,False,True,5.76,

@@ -1,0 +1,35 @@
+{
+  "Variant A (Current CLAHE+Otsu)": {
+    "valid_accuracy": 39.68,
+    "accepted_correct": 24,
+    "accepted_wrong": 18,
+    "accepted_accuracy": 57.14,
+    "rejected_valid": 21,
+    "invalid_rejected_rate": 85.71,
+    "shadow_correct_count": "0/6",
+    "faint_dots_correct_count": "3/8",
+    "mean_preprocessing_ms": 6.08
+  },
+  "Variant B (Adaptive Gaussian)": {
+    "valid_accuracy": 71.43,
+    "accepted_correct": 41,
+    "accepted_wrong": 11,
+    "accepted_accuracy": 78.85,
+    "rejected_valid": 11,
+    "invalid_rejected_rate": 100.0,
+    "shadow_correct_count": "5/6",
+    "faint_dots_correct_count": "8/8",
+    "mean_preprocessing_ms": 3.07
+  },
+  "Variant C (Shadow Field Division + Adaptive)": {
+    "valid_accuracy": 58.73,
+    "accepted_correct": 32,
+    "accepted_wrong": 13,
+    "accepted_accuracy": 71.11,
+    "rejected_valid": 18,
+    "invalid_rejected_rate": 85.71,
+    "shadow_correct_count": "4/6",
+    "faint_dots_correct_count": "7/8",
+    "mean_preprocessing_ms": 22.07
+  }
+}

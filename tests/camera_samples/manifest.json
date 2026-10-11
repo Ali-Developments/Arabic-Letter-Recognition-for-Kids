@@ -1,0 +1,632 @@
+[
+  {
+    "file": "tests/camera_samples/clean/clean_00_alef.jpg",
+    "condition": "clean",
+    "true_letter": "ا",
+    "true_class_id": 0,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Crisp centered alef under even room lighting."
+  },
+  {
+    "file": "tests/camera_samples/clean/clean_01_baa.jpg",
+    "condition": "clean",
+    "true_letter": "ب",
+    "true_class_id": 1,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Crisp centered baa under even room lighting."
+  },
+  {
+    "file": "tests/camera_samples/clean/clean_02_taa.jpg",
+    "condition": "clean",
+    "true_letter": "ت",
+    "true_class_id": 2,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Crisp centered taa under even room lighting."
+  },
+  {
+    "file": "tests/camera_samples/clean/clean_03_thaa.jpg",
+    "condition": "clean",
+    "true_letter": "ث",
+    "true_class_id": 3,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Crisp centered thaa under even room lighting."
+  },
+  {
+    "file": "tests/camera_samples/clean/clean_04_jeem.jpg",
+    "condition": "clean",
+    "true_letter": "ج",
+    "true_class_id": 4,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Crisp centered jeem under even room lighting."
+  },
+  {
+    "file": "tests/camera_samples/clean/clean_06_khaa.jpg",
+    "condition": "clean",
+    "true_letter": "خ",
+    "true_class_id": 6,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Crisp centered khaa under even room lighting."
+  },
+  {
+    "file": "tests/camera_samples/clean/clean_08_dhaal.jpg",
+    "condition": "clean",
+    "true_letter": "ذ",
+    "true_class_id": 8,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Crisp centered dhaal under even room lighting."
+  },
+  {
+    "file": "tests/camera_samples/clean/clean_10_zaay.jpg",
+    "condition": "clean",
+    "true_letter": "ز",
+    "true_class_id": 10,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Crisp centered zaay under even room lighting."
+  },
+  {
+    "file": "tests/camera_samples/shadow/shadow_00_alef.jpg",
+    "condition": "shadow",
+    "true_letter": "ا",
+    "true_class_id": 0,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Diagonal hand/desk cast shadow over alef."
+  },
+  {
+    "file": "tests/camera_samples/shadow/shadow_01_baa.jpg",
+    "condition": "shadow",
+    "true_letter": "ب",
+    "true_class_id": 1,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Diagonal hand/desk cast shadow over baa."
+  },
+  {
+    "file": "tests/camera_samples/shadow/shadow_02_taa.jpg",
+    "condition": "shadow",
+    "true_letter": "ت",
+    "true_class_id": 2,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Diagonal hand/desk cast shadow over taa."
+  },
+  {
+    "file": "tests/camera_samples/shadow/shadow_03_thaa.jpg",
+    "condition": "shadow",
+    "true_letter": "ث",
+    "true_class_id": 3,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Diagonal hand/desk cast shadow over thaa."
+  },
+  {
+    "file": "tests/camera_samples/shadow/shadow_04_jeem.jpg",
+    "condition": "shadow",
+    "true_letter": "ج",
+    "true_class_id": 4,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Diagonal hand/desk cast shadow over jeem."
+  },
+  {
+    "file": "tests/camera_samples/shadow/shadow_06_khaa.jpg",
+    "condition": "shadow",
+    "true_letter": "خ",
+    "true_class_id": 6,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Diagonal hand/desk cast shadow over khaa."
+  },
+  {
+    "file": "tests/camera_samples/low_light/lowlight_02_taa.jpg",
+    "condition": "low_light",
+    "true_letter": "ت",
+    "true_class_id": 2,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Dim lighting underexposed capture for taa."
+  },
+  {
+    "file": "tests/camera_samples/low_light/lowlight_03_thaa.jpg",
+    "condition": "low_light",
+    "true_letter": "ث",
+    "true_class_id": 3,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Dim lighting underexposed capture for thaa."
+  },
+  {
+    "file": "tests/camera_samples/low_light/lowlight_04_jeem.jpg",
+    "condition": "low_light",
+    "true_letter": "ج",
+    "true_class_id": 4,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Dim lighting underexposed capture for jeem."
+  },
+  {
+    "file": "tests/camera_samples/low_light/lowlight_06_khaa.jpg",
+    "condition": "low_light",
+    "true_letter": "خ",
+    "true_class_id": 6,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Dim lighting underexposed capture for khaa."
+  },
+  {
+    "file": "tests/camera_samples/low_light/lowlight_08_dhaal.jpg",
+    "condition": "low_light",
+    "true_letter": "ذ",
+    "true_class_id": 8,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Dim lighting underexposed capture for dhaal."
+  },
+  {
+    "file": "tests/camera_samples/bright_light/bright_04_jeem.jpg",
+    "condition": "bright_light",
+    "true_letter": "ج",
+    "true_class_id": 4,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Bright desk lamp hotspot glare for jeem."
+  },
+  {
+    "file": "tests/camera_samples/bright_light/bright_06_khaa.jpg",
+    "condition": "bright_light",
+    "true_letter": "خ",
+    "true_class_id": 6,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Bright desk lamp hotspot glare for khaa."
+  },
+  {
+    "file": "tests/camera_samples/bright_light/bright_08_dhaal.jpg",
+    "condition": "bright_light",
+    "true_letter": "ذ",
+    "true_class_id": 8,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Bright desk lamp hotspot glare for dhaal."
+  },
+  {
+    "file": "tests/camera_samples/bright_light/bright_10_zaay.jpg",
+    "condition": "bright_light",
+    "true_letter": "ز",
+    "true_class_id": 10,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Bright desk lamp hotspot glare for zaay."
+  },
+  {
+    "file": "tests/camera_samples/rotated/rotated_01_baa.jpg",
+    "condition": "rotated",
+    "true_letter": "ب",
+    "true_class_id": 1,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "baa rotated by -15.0 degrees."
+  },
+  {
+    "file": "tests/camera_samples/rotated/rotated_04_jeem.jpg",
+    "condition": "rotated",
+    "true_letter": "ج",
+    "true_class_id": 4,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "jeem rotated by -15.0 degrees."
+  },
+  {
+    "file": "tests/camera_samples/rotated/rotated_11_seen.jpg",
+    "condition": "rotated",
+    "true_letter": "س",
+    "true_class_id": 11,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "seen rotated by -12.0 degrees."
+  },
+  {
+    "file": "tests/camera_samples/rotated/rotated_13_saad.jpg",
+    "condition": "rotated",
+    "true_letter": "ص",
+    "true_class_id": 13,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "saad rotated by 14.0 degrees."
+  },
+  {
+    "file": "tests/camera_samples/rotated/rotated_24_noon.jpg",
+    "condition": "rotated",
+    "true_letter": "ن",
+    "true_class_id": 24,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "noon rotated by 14.0 degrees."
+  },
+  {
+    "file": "tests/camera_samples/perspective/perspective_00_alef.jpg",
+    "condition": "perspective",
+    "true_letter": "ا",
+    "true_class_id": 0,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Perspective trapezoidal tilt for alef."
+  },
+  {
+    "file": "tests/camera_samples/perspective/perspective_02_taa.jpg",
+    "condition": "perspective",
+    "true_letter": "ت",
+    "true_class_id": 2,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Perspective trapezoidal tilt for taa."
+  },
+  {
+    "file": "tests/camera_samples/perspective/perspective_08_dhaal.jpg",
+    "condition": "perspective",
+    "true_letter": "ذ",
+    "true_class_id": 8,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Perspective trapezoidal tilt for dhaal."
+  },
+  {
+    "file": "tests/camera_samples/perspective/perspective_12_sheen.jpg",
+    "condition": "perspective",
+    "true_letter": "ش",
+    "true_class_id": 12,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Perspective trapezoidal tilt for sheen."
+  },
+  {
+    "file": "tests/camera_samples/perspective/perspective_27_yaa.jpg",
+    "condition": "perspective",
+    "true_letter": "ي",
+    "true_class_id": 27,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Perspective trapezoidal tilt for yaa."
+  },
+  {
+    "file": "tests/camera_samples/pencil/pencil_01_baa.jpg",
+    "condition": "pencil",
+    "true_letter": "ب",
+    "true_class_id": 1,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Grainy gray graphite pencil stroke for baa."
+  },
+  {
+    "file": "tests/camera_samples/pencil/pencil_02_taa.jpg",
+    "condition": "pencil",
+    "true_letter": "ت",
+    "true_class_id": 2,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Grainy gray graphite pencil stroke for taa."
+  },
+  {
+    "file": "tests/camera_samples/pencil/pencil_04_jeem.jpg",
+    "condition": "pencil",
+    "true_letter": "ج",
+    "true_class_id": 4,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Grainy gray graphite pencil stroke for jeem."
+  },
+  {
+    "file": "tests/camera_samples/pencil/pencil_13_saad.jpg",
+    "condition": "pencil",
+    "true_letter": "ص",
+    "true_class_id": 13,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Grainy gray graphite pencil stroke for saad."
+  },
+  {
+    "file": "tests/camera_samples/pencil/pencil_16_dhah.jpg",
+    "condition": "pencil",
+    "true_letter": "ظ",
+    "true_class_id": 16,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Grainy gray graphite pencil stroke for dhah."
+  },
+  {
+    "file": "tests/camera_samples/pen/pen_00_alef.jpg",
+    "condition": "pen",
+    "true_letter": "ا",
+    "true_class_id": 0,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Deep blue ballpoint pen stroke for alef."
+  },
+  {
+    "file": "tests/camera_samples/pen/pen_03_thaa.jpg",
+    "condition": "pen",
+    "true_letter": "ث",
+    "true_class_id": 3,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Deep blue ballpoint pen stroke for thaa."
+  },
+  {
+    "file": "tests/camera_samples/pen/pen_06_khaa.jpg",
+    "condition": "pen",
+    "true_letter": "خ",
+    "true_class_id": 6,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Deep blue ballpoint pen stroke for khaa."
+  },
+  {
+    "file": "tests/camera_samples/pen/pen_15_tah.jpg",
+    "condition": "pen",
+    "true_letter": "ط",
+    "true_class_id": 15,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Deep blue ballpoint pen stroke for tah."
+  },
+  {
+    "file": "tests/camera_samples/pen/pen_24_noon.jpg",
+    "condition": "pen",
+    "true_letter": "ن",
+    "true_class_id": 24,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Deep blue ballpoint pen stroke for noon."
+  },
+  {
+    "file": "tests/camera_samples/small_letter/small_01_baa.jpg",
+    "condition": "small_letter",
+    "true_letter": "ب",
+    "true_class_id": 1,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Small handwriting baa occupying ~18% frame."
+  },
+  {
+    "file": "tests/camera_samples/small_letter/small_07_daal.jpg",
+    "condition": "small_letter",
+    "true_letter": "د",
+    "true_class_id": 7,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Small handwriting daal occupying ~18% frame."
+  },
+  {
+    "file": "tests/camera_samples/small_letter/small_10_zaay.jpg",
+    "condition": "small_letter",
+    "true_letter": "ز",
+    "true_class_id": 10,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Small handwriting zaay occupying ~18% frame."
+  },
+  {
+    "file": "tests/camera_samples/small_letter/small_11_seen.jpg",
+    "condition": "small_letter",
+    "true_letter": "س",
+    "true_class_id": 11,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Small handwriting seen occupying ~18% frame."
+  },
+  {
+    "file": "tests/camera_samples/large_letter/large_00_alef.jpg",
+    "condition": "large_letter",
+    "true_letter": "ا",
+    "true_class_id": 0,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Large handwriting alef filling guide frame."
+  },
+  {
+    "file": "tests/camera_samples/large_letter/large_04_jeem.jpg",
+    "condition": "large_letter",
+    "true_letter": "ج",
+    "true_class_id": 4,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Large handwriting jeem filling guide frame."
+  },
+  {
+    "file": "tests/camera_samples/large_letter/large_12_sheen.jpg",
+    "condition": "large_letter",
+    "true_letter": "ش",
+    "true_class_id": 12,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Large handwriting sheen filling guide frame."
+  },
+  {
+    "file": "tests/camera_samples/large_letter/large_13_saad.jpg",
+    "condition": "large_letter",
+    "true_letter": "ص",
+    "true_class_id": 13,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Large handwriting saad filling guide frame."
+  },
+  {
+    "file": "tests/camera_samples/faint_dots/faint_dots_01_baa.jpg",
+    "condition": "faint_dots",
+    "true_letter": "ب",
+    "true_class_id": 1,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Lightly pressed faint dots on baa."
+  },
+  {
+    "file": "tests/camera_samples/faint_dots/faint_dots_02_taa.jpg",
+    "condition": "faint_dots",
+    "true_letter": "ت",
+    "true_class_id": 2,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Lightly pressed faint dots on taa."
+  },
+  {
+    "file": "tests/camera_samples/faint_dots/faint_dots_03_thaa.jpg",
+    "condition": "faint_dots",
+    "true_letter": "ث",
+    "true_class_id": 3,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Lightly pressed faint dots on thaa."
+  },
+  {
+    "file": "tests/camera_samples/faint_dots/faint_dots_04_jeem.jpg",
+    "condition": "faint_dots",
+    "true_letter": "ج",
+    "true_class_id": 4,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Lightly pressed faint dots on jeem."
+  },
+  {
+    "file": "tests/camera_samples/faint_dots/faint_dots_06_khaa.jpg",
+    "condition": "faint_dots",
+    "true_letter": "خ",
+    "true_class_id": 6,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Lightly pressed faint dots on khaa."
+  },
+  {
+    "file": "tests/camera_samples/faint_dots/faint_dots_08_dhaal.jpg",
+    "condition": "faint_dots",
+    "true_letter": "ذ",
+    "true_class_id": 8,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Lightly pressed faint dots on dhaal."
+  },
+  {
+    "file": "tests/camera_samples/faint_dots/faint_dots_16_dhah.jpg",
+    "condition": "faint_dots",
+    "true_letter": "ظ",
+    "true_class_id": 16,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Lightly pressed faint dots on dhah."
+  },
+  {
+    "file": "tests/camera_samples/faint_dots/faint_dots_27_yaa.jpg",
+    "condition": "faint_dots",
+    "true_letter": "ي",
+    "true_class_id": 27,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Lightly pressed faint dots on yaa."
+  },
+  {
+    "file": "tests/camera_samples/clutter/clutter_01_baa.jpg",
+    "condition": "clutter",
+    "true_letter": "ب",
+    "true_class_id": 1,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Distant ruler margin and desk speckles around baa."
+  },
+  {
+    "file": "tests/camera_samples/clutter/clutter_08_dhaal.jpg",
+    "condition": "clutter",
+    "true_letter": "ذ",
+    "true_class_id": 8,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Distant ruler margin and desk speckles around dhaal."
+  },
+  {
+    "file": "tests/camera_samples/clutter/clutter_11_seen.jpg",
+    "condition": "clutter",
+    "true_letter": "س",
+    "true_class_id": 11,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Distant ruler margin and desk speckles around seen."
+  },
+  {
+    "file": "tests/camera_samples/clutter/clutter_24_noon.jpg",
+    "condition": "clutter",
+    "true_letter": "ن",
+    "true_class_id": 24,
+    "is_synthetic": true,
+    "expected_behavior": "accept",
+    "description": "Distant ruler margin and desk speckles around noon."
+  },
+  {
+    "file": "tests/camera_samples/blank/blank_1.jpg",
+    "condition": "blank",
+    "true_letter": null,
+    "true_class_id": null,
+    "is_synthetic": true,
+    "expected_behavior": "reject",
+    "description": "Completely blank notebook paper inside guide frame."
+  },
+  {
+    "file": "tests/camera_samples/blank/blank_2.jpg",
+    "condition": "blank",
+    "true_letter": null,
+    "true_class_id": null,
+    "is_synthetic": true,
+    "expected_behavior": "reject",
+    "description": "Completely blank notebook paper inside guide frame."
+  },
+  {
+    "file": "tests/camera_samples/blank/blank_3.jpg",
+    "condition": "blank",
+    "true_letter": null,
+    "true_class_id": null,
+    "is_synthetic": true,
+    "expected_behavior": "reject",
+    "description": "Completely blank notebook paper inside guide frame."
+  },
+  {
+    "file": "tests/camera_samples/blank/blank_4.jpg",
+    "condition": "blank",
+    "true_letter": null,
+    "true_class_id": null,
+    "is_synthetic": true,
+    "expected_behavior": "reject",
+    "description": "Completely blank notebook paper inside guide frame."
+  },
+  {
+    "file": "tests/camera_samples/invalid/invalid_black_frame.jpg",
+    "condition": "invalid",
+    "true_letter": null,
+    "true_class_id": null,
+    "is_synthetic": true,
+    "expected_behavior": "reject",
+    "description": "Pitch black camera occlusion (e.g. finger over camera lens)."
+  },
+  {
+    "file": "tests/camera_samples/invalid/invalid_white_washout.jpg",
+    "condition": "invalid",
+    "true_letter": null,
+    "true_class_id": null,
+    "is_synthetic": true,
+    "expected_behavior": "reject",
+    "description": "Completely washed out blank white image without features."
+  },
+  {
+    "file": "tests/camera_samples/invalid/invalid_multiple_letters.jpg",
+    "condition": "invalid",
+    "true_letter": null,
+    "true_class_id": null,
+    "is_synthetic": true,
+    "expected_behavior": "reject",
+    "description": "Multiple separate letters (baa + taa) written inside frame."
+  }
+]

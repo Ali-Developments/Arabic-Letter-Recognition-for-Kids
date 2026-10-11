@@ -1,0 +1,4 @@
+model,training_data,hijja_test_accuracy,macro_f1,dotted_letter_accuracy,parameters,checkpoint_size_mb,mean_cpu_latency_ms,median_cpu_latency_ms,p95_cpu_latency_ms,accepted_wrong_rate,selected_winner
+ArabicCNN (Baseline),Hijja Child Train (8632),90.15,90.10,87.69,2346076,8.97,1.10,1.03,1.48,4.68,YES
+MobileNetV3-Small (Hijja),Hijja Child Train (8632),76.32,76.25,70.11,1081628,4.25,4.55,4.16,6.51,7.93,NO
+MobileNetV3-Small (Mixed),Hijja (70%) + AHCD (30%),74.83,74.73,69.91,1081628,4.25,4.75,4.46,6.84,8.46,NO

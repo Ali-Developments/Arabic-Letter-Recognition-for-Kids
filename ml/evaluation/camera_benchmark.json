@@ -1,0 +1,135 @@
+{
+  "model_architecture": "ArabicCNN",
+  "checkpoint": "ml/models/final_candidate_model.pt",
+  "acceptance_threshold": 0.75,
+  "min_top2_margin": 0.2,
+  "total_camera_samples": 70,
+  "valid_samples": 63,
+  "invalid_samples": 7,
+  "overall_camera_accuracy": 63.49,
+  "accepted_accuracy": 85.11,
+  "accepted_correct_count": 40,
+  "accepted_wrong_count": 7,
+  "rejection_rate_percent": 25.4,
+  "false_acceptance_rate_percent": 11.11,
+  "invalid_rejection_rate_percent": 100.0,
+  "latency_ms": {
+    "preprocessing_mean": 4.56,
+    "model_inference_mean": 3.7,
+    "end_to_end_mean": 8.26
+  },
+  "condition_breakdown": {
+    "clean": {
+      "total": 8,
+      "accuracy_percent": 50.0,
+      "accepted_correct": 4,
+      "accepted_wrong": 2,
+      "accepted_precision_percent": 66.67,
+      "rejected": 2
+    },
+    "shadow": {
+      "total": 6,
+      "accuracy_percent": 83.33,
+      "accepted_correct": 5,
+      "accepted_wrong": 0,
+      "accepted_precision_percent": 100.0,
+      "rejected": 1
+    },
+    "low_light": {
+      "total": 5,
+      "accuracy_percent": 100.0,
+      "accepted_correct": 5,
+      "accepted_wrong": 0,
+      "accepted_precision_percent": 100.0,
+      "rejected": 0
+    },
+    "bright_light": {
+      "total": 4,
+      "accuracy_percent": 50.0,
+      "accepted_correct": 2,
+      "accepted_wrong": 1,
+      "accepted_precision_percent": 66.67,
+      "rejected": 1
+    },
+    "rotated": {
+      "total": 5,
+      "accuracy_percent": 40.0,
+      "accepted_correct": 2,
+      "accepted_wrong": 1,
+      "accepted_precision_percent": 66.67,
+      "rejected": 2
+    },
+    "perspective": {
+      "total": 5,
+      "accuracy_percent": 60.0,
+      "accepted_correct": 3,
+      "accepted_wrong": 0,
+      "accepted_precision_percent": 100.0,
+      "rejected": 2
+    },
+    "pencil": {
+      "total": 5,
+      "accuracy_percent": 80.0,
+      "accepted_correct": 4,
+      "accepted_wrong": 1,
+      "accepted_precision_percent": 80.0,
+      "rejected": 0
+    },
+    "pen": {
+      "total": 5,
+      "accuracy_percent": 60.0,
+      "accepted_correct": 3,
+      "accepted_wrong": 1,
+      "accepted_precision_percent": 75.0,
+      "rejected": 1
+    },
+    "small_letter": {
+      "total": 4,
+      "accuracy_percent": 50.0,
+      "accepted_correct": 2,
+      "accepted_wrong": 0,
+      "accepted_precision_percent": 100.0,
+      "rejected": 2
+    },
+    "large_letter": {
+      "total": 4,
+      "accuracy_percent": 75.0,
+      "accepted_correct": 3,
+      "accepted_wrong": 1,
+      "accepted_precision_percent": 75.0,
+      "rejected": 0
+    },
+    "faint_dots": {
+      "total": 8,
+      "accuracy_percent": 75.0,
+      "accepted_correct": 6,
+      "accepted_wrong": 0,
+      "accepted_precision_percent": 100.0,
+      "rejected": 2
+    },
+    "clutter": {
+      "total": 4,
+      "accuracy_percent": 25.0,
+      "accepted_correct": 1,
+      "accepted_wrong": 0,
+      "accepted_precision_percent": 100.0,
+      "rejected": 3
+    },
+    "blank": {
+      "total": 4,
+      "accuracy_percent": 100.0,
+      "accepted_correct": 0,
+      "accepted_wrong": 0,
+      "accepted_precision_percent": 0.0,
+      "rejected": 4
+    },
+    "invalid": {
+      "total": 3,
+      "accuracy_percent": 100.0,
+      "accepted_correct": 0,
+      "accepted_wrong": 0,
+      "accepted_precision_percent": 0.0,
+      "rejected": 3
+    }
+  }
+}

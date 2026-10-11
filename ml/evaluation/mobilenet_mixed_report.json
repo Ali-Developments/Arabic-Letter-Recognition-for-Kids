@@ -1,0 +1,107 @@
+{
+  "experiment": "mobilenet_mixed",
+  "checkpoint": "mobilenetv3_mixed_best.pt",
+  "test_accuracy": 74.83,
+  "macro_precision": 75.68,
+  "macro_recall": 74.84,
+  "macro_f1": 74.73,
+  "dotted_accuracy": 69.91,
+  "params": 1081628,
+  "checkpoint_size_mb": 4.25,
+  "latency_mean_ms": 4.75,
+  "latency_median_ms": 4.46,
+  "latency_p95_ms": 6.84,
+  "accepted_wrong_rate": 8.46,
+  "top_confusions": [
+    {
+      "true_id": 3,
+      "pred_id": 2,
+      "true_letter": "ث",
+      "pred_letter": "ت",
+      "true_name": "thaa",
+      "pred_name": "taa",
+      "count": 22
+    },
+    {
+      "true_id": 5,
+      "pred_id": 4,
+      "true_letter": "ح",
+      "pred_letter": "ج",
+      "true_name": "haa",
+      "pred_name": "jeem",
+      "count": 16
+    },
+    {
+      "true_id": 15,
+      "pred_id": 16,
+      "true_letter": "ط",
+      "pred_letter": "ظ",
+      "true_name": "tah",
+      "pred_name": "dhah",
+      "count": 12
+    },
+    {
+      "true_id": 24,
+      "pred_id": 2,
+      "true_letter": "ن",
+      "pred_letter": "ت",
+      "true_name": "noon",
+      "pred_name": "taa",
+      "count": 12
+    },
+    {
+      "true_id": 6,
+      "pred_id": 18,
+      "true_letter": "خ",
+      "pred_letter": "غ",
+      "true_name": "khaa",
+      "pred_name": "ghain",
+      "count": 11
+    },
+    {
+      "true_id": 8,
+      "pred_id": 10,
+      "true_letter": "ذ",
+      "pred_letter": "ز",
+      "true_name": "dhaal",
+      "pred_name": "zaay",
+      "count": 11
+    },
+    {
+      "true_id": 4,
+      "pred_id": 5,
+      "true_letter": "ج",
+      "pred_letter": "ح",
+      "true_name": "jeem",
+      "pred_name": "haa",
+      "count": 10
+    },
+    {
+      "true_id": 12,
+      "pred_id": 14,
+      "true_letter": "ش",
+      "pred_letter": "ض",
+      "true_name": "sheen",
+      "pred_name": "daad",
+      "count": 10
+    },
+    {
+      "true_id": 13,
+      "pred_id": 11,
+      "true_letter": "ص",
+      "pred_letter": "س",
+      "true_name": "saad",
+      "pred_name": "seen",
+      "count": 10
+    },
+    {
+      "true_id": 16,
+      "pred_id": 15,
+      "true_letter": "ظ",
+      "pred_letter": "ط",
+      "true_name": "dhah",
+      "pred_name": "tah",
+      "count": 10
+    }
+  ]
+}

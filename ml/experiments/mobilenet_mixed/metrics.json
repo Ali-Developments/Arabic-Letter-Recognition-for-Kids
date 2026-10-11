@@ -1,0 +1,104 @@
+{
+  "experiment": "mobilenet_mixed",
+  "best_epoch": 20,
+  "best_val_accuracy": 75.82,
+  "best_val_loss": 0.7226,
+  "test_accuracy": 74.83,
+  "macro_precision": 75.68,
+  "macro_recall": 74.84,
+  "macro_f1": 74.73,
+  "dotted_accuracy": 69.91,
+  "accepted_wrong_rate": 8.46,
+  "top_confusions": [
+    {
+      "true_id": 3,
+      "pred_id": 2,
+      "true_letter": "\u062b",
+      "pred_letter": "\u062a",
+      "true_name": "thaa",
+      "pred_name": "taa",
+      "count": 22
+    },
+    {
+      "true_id": 5,
+      "pred_id": 4,
+      "true_letter": "\u062d",
+      "pred_letter": "\u062c",
+      "true_name": "haa",
+      "pred_name": "jeem",
+      "count": 16
+    },
+    {
+      "true_id": 15,
+      "pred_id": 16,
+      "true_letter": "\u0637",
+      "pred_letter": "\u0638",
+      "true_name": "tah",
+      "pred_name": "dhah",
+      "count": 12
+    },
+    {
+      "true_id": 24,
+      "pred_id": 2,
+      "true_letter": "\u0646",
+      "pred_letter": "\u062a",
+      "true_name": "noon",
+      "pred_name": "taa",
+      "count": 12
+    },
+    {
+      "true_id": 6,
+      "pred_id": 18,
+      "true_letter": "\u062e",
+      "pred_letter": "\u063a",
+      "true_name": "khaa",
+      "pred_name": "ghain",
+      "count": 11
+    },
+    {
+      "true_id": 8,
+      "pred_id": 10,
+      "true_letter": "\u0630",
+      "pred_letter": "\u0632",
+      "true_name": "dhaal",
+      "pred_name": "zaay",
+      "count": 11
+    },
+    {
+      "true_id": 4,
+      "pred_id": 5,
+      "true_letter": "\u062c",
+      "pred_letter": "\u062d",
+      "true_name": "jeem",
+      "pred_name": "haa",
+      "count": 10
+    },
+    {
+      "true_id": 12,
+      "pred_id": 14,
+      "true_letter": "\u0634",
+      "pred_letter": "\u0636",
+      "true_name": "sheen",
+      "pred_name": "daad",
+      "count": 10
+    },
+    {
+      "true_id": 13,
+      "pred_id": 11,
+      "true_letter": "\u0635",
+      "pred_letter": "\u0633",
+      "true_name": "saad",
+      "pred_name": "seen",
+      "count": 10
+    },
+    {
+      "true_id": 16,
+      "pred_id": 15,
+      "true_letter": "\u0638",
+      "pred_letter": "\u0637",
+      "true_name": "dhah",
+      "pred_name": "tah",
+      "count": 10
+    }
+  ]
+}

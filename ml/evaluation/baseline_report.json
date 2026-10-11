@@ -1,0 +1,329 @@
+{
+  "model_architecture": "ArabicCNN (Lightweight Custom CNN)",
+  "checkpoint": "baseline_arabic_cnn_best.pt",
+  "test_dataset": "Hijja Isolated Child Handwriting (Test Split)",
+  "test_samples_count": 1879,
+  "test_accuracy": 90.15,
+  "macro_precision": 90.41,
+  "macro_recall": 90.13,
+  "macro_f1": 90.1,
+  "per_class_metrics": {
+    "00_ا": {
+      "letter": "ا",
+      "name_en": "alef",
+      "precision": 95.83,
+      "recall": 100.0,
+      "f1_score": 97.87,
+      "support": 69
+    },
+    "01_ب": {
+      "letter": "ب",
+      "name_en": "baa",
+      "precision": 100.0,
+      "recall": 95.65,
+      "f1_score": 97.78,
+      "support": 69
+    },
+    "02_ت": {
+      "letter": "ت",
+      "name_en": "taa",
+      "precision": 79.03,
+      "recall": 71.01,
+      "f1_score": 74.81,
+      "support": 69
+    },
+    "03_ث": {
+      "letter": "ث",
+      "name_en": "thaa",
+      "precision": 96.61,
+      "recall": 82.61,
+      "f1_score": 89.06,
+      "support": 69
+    },
+    "04_ج": {
+      "letter": "ج",
+      "name_en": "jeem",
+      "precision": 93.06,
+      "recall": 93.06,
+      "f1_score": 93.06,
+      "support": 72
+    },
+    "05_ح": {
+      "letter": "ح",
+      "name_en": "haa",
+      "precision": 89.04,
+      "recall": 92.86,
+      "f1_score": 90.91,
+      "support": 70
+    },
+    "06_خ": {
+      "letter": "خ",
+      "name_en": "khaa",
+      "precision": 100.0,
+      "recall": 95.83,
+      "f1_score": 97.87,
+      "support": 72
+    },
+    "07_د": {
+      "letter": "د",
+      "name_en": "daal",
+      "precision": 84.93,
+      "recall": 91.18,
+      "f1_score": 87.94,
+      "support": 68
+    },
+    "08_ذ": {
+      "letter": "ذ",
+      "name_en": "dhaal",
+      "precision": 92.59,
+      "recall": 76.92,
+      "f1_score": 84.03,
+      "support": 65
+    },
+    "09_ر": {
+      "letter": "ر",
+      "name_en": "raa",
+      "precision": 86.49,
+      "recall": 98.46,
+      "f1_score": 92.09,
+      "support": 65
+    },
+    "10_ز": {
+      "letter": "ز",
+      "name_en": "zaay",
+      "precision": 86.36,
+      "recall": 87.69,
+      "f1_score": 87.02,
+      "support": 65
+    },
+    "11_س": {
+      "letter": "س",
+      "name_en": "seen",
+      "precision": 86.11,
+      "recall": 93.94,
+      "f1_score": 89.86,
+      "support": 66
+    },
+    "12_ش": {
+      "letter": "ش",
+      "name_en": "sheen",
+      "precision": 89.86,
+      "recall": 92.54,
+      "f1_score": 91.18,
+      "support": 67
+    },
+    "13_ص": {
+      "letter": "ص",
+      "name_en": "saad",
+      "precision": 88.33,
+      "recall": 79.1,
+      "f1_score": 83.46,
+      "support": 67
+    },
+    "14_ض": {
+      "letter": "ض",
+      "name_en": "daad",
+      "precision": 84.38,
+      "recall": 81.82,
+      "f1_score": 83.08,
+      "support": 66
+    },
+    "15_ط": {
+      "letter": "ط",
+      "name_en": "tah",
+      "precision": 87.67,
+      "recall": 92.75,
+      "f1_score": 90.14,
+      "support": 69
+    },
+    "16_ظ": {
+      "letter": "ظ",
+      "name_en": "dhah",
+      "precision": 92.98,
+      "recall": 82.81,
+      "f1_score": 87.6,
+      "support": 64
+    },
+    "17_ع": {
+      "letter": "ع",
+      "name_en": "ain",
+      "precision": 94.2,
+      "recall": 98.48,
+      "f1_score": 96.3,
+      "support": 66
+    },
+    "18_غ": {
+      "letter": "غ",
+      "name_en": "ghain",
+      "precision": 95.52,
+      "recall": 98.46,
+      "f1_score": 96.97,
+      "support": 65
+    },
+    "19_ف": {
+      "letter": "ف",
+      "name_en": "faa",
+      "precision": 81.69,
+      "recall": 87.88,
+      "f1_score": 84.67,
+      "support": 66
+    },
+    "20_ق": {
+      "letter": "ق",
+      "name_en": "qaaf",
+      "precision": 93.55,
+      "recall": 87.88,
+      "f1_score": 90.62,
+      "support": 66
+    },
+    "21_ك": {
+      "letter": "ك",
+      "name_en": "kaaf",
+      "precision": 87.14,
+      "recall": 91.04,
+      "f1_score": 89.05,
+      "support": 67
+    },
+    "22_ل": {
+      "letter": "ل",
+      "name_en": "laam",
+      "precision": 90.0,
+      "recall": 94.03,
+      "f1_score": 91.97,
+      "support": 67
+    },
+    "23_م": {
+      "letter": "م",
+      "name_en": "meem",
+      "precision": 100.0,
+      "recall": 93.94,
+      "f1_score": 96.88,
+      "support": 66
+    },
+    "24_ن": {
+      "letter": "ن",
+      "name_en": "noon",
+      "precision": 74.36,
+      "recall": 87.88,
+      "f1_score": 80.56,
+      "support": 66
+    },
+    "25_ه": {
+      "letter": "ه",
+      "name_en": "haa_end",
+      "precision": 84.93,
+      "recall": 95.38,
+      "f1_score": 89.86,
+      "support": 65
+    },
+    "26_و": {
+      "letter": "و",
+      "name_en": "waaw",
+      "precision": 96.72,
+      "recall": 88.06,
+      "f1_score": 92.19,
+      "support": 67
+    },
+    "27_ي": {
+      "letter": "ي",
+      "name_en": "yaa",
+      "precision": 100.0,
+      "recall": 92.42,
+      "f1_score": 96.06,
+      "support": 66
+    }
+  },
+  "top_confusions": [
+    {
+      "true_id": 2,
+      "pred_id": 24,
+      "true_letter": "ت",
+      "pred_letter": "ن",
+      "true_name": "taa",
+      "pred_name": "noon",
+      "count": 10
+    },
+    {
+      "true_id": 8,
+      "pred_id": 10,
+      "true_letter": "ذ",
+      "pred_letter": "ز",
+      "true_name": "dhaal",
+      "pred_name": "zaay",
+      "count": 7
+    },
+    {
+      "true_id": 13,
+      "pred_id": 11,
+      "true_letter": "ص",
+      "pred_letter": "س",
+      "true_name": "saad",
+      "pred_name": "seen",
+      "count": 7
+    },
+    {
+      "true_id": 16,
+      "pred_id": 15,
+      "true_letter": "ظ",
+      "pred_letter": "ط",
+      "true_name": "dhah",
+      "pred_name": "tah",
+      "count": 7
+    },
+    {
+      "true_id": 2,
+      "pred_id": 21,
+      "true_letter": "ت",
+      "pred_letter": "ك",
+      "true_name": "taa",
+      "pred_name": "kaaf",
+      "count": 6
+    },
+    {
+      "true_id": 8,
+      "pred_id": 7,
+      "true_letter": "ذ",
+      "pred_letter": "د",
+      "true_name": "dhaal",
+      "pred_name": "daal",
+      "count": 6
+    },
+    {
+      "true_id": 3,
+      "pred_id": 24,
+      "true_letter": "ث",
+      "pred_letter": "ن",
+      "true_name": "thaa",
+      "pred_name": "noon",
+      "count": 5
+    },
+    {
+      "true_id": 4,
+      "pred_id": 5,
+      "true_letter": "ج",
+      "pred_letter": "ح",
+      "true_name": "jeem",
+      "pred_name": "haa",
+      "count": 5
+    },
+    {
+      "true_id": 14,
+      "pred_id": 13,
+      "true_letter": "ض",
+      "pred_letter": "ص",
+      "true_name": "daad",
+      "pred_name": "saad",
+      "count": 5
+    },
+    {
+      "true_id": 26,
+      "pred_id": 25,
+      "true_letter": "و",
+      "pred_letter": "ه",
+      "true_name": "waaw",
+      "pred_name": "haa_end",
+      "count": 5
+    }
+  ],
+  "total_misclassified": 185
+}

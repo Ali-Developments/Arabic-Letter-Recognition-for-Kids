@@ -1,0 +1,101 @@
+{
+  "best_epoch": 24,
+  "best_val_accuracy": 90.49,
+  "best_val_loss": 0.337,
+  "test_accuracy": 90.15,
+  "macro_precision": 90.41,
+  "macro_recall": 90.13,
+  "macro_f1": 90.1,
+  "top_confusions": [
+    {
+      "true_id": 2,
+      "pred_id": 24,
+      "true_letter": "\u062a",
+      "pred_letter": "\u0646",
+      "true_name": "taa",
+      "pred_name": "noon",
+      "count": 10
+    },
+    {
+      "true_id": 8,
+      "pred_id": 10,
+      "true_letter": "\u0630",
+      "pred_letter": "\u0632",
+      "true_name": "dhaal",
+      "pred_name": "zaay",
+      "count": 7
+    },
+    {
+      "true_id": 13,
+      "pred_id": 11,
+      "true_letter": "\u0635",
+      "pred_letter": "\u0633",
+      "true_name": "saad",
+      "pred_name": "seen",
+      "count": 7
+    },
+    {
+      "true_id": 16,
+      "pred_id": 15,
+      "true_letter": "\u0638",
+      "pred_letter": "\u0637",
+      "true_name": "dhah",
+      "pred_name": "tah",
+      "count": 7
+    },
+    {
+      "true_id": 2,
+      "pred_id": 21,
+      "true_letter": "\u062a",
+      "pred_letter": "\u0643",
+      "true_name": "taa",
+      "pred_name": "kaaf",
+      "count": 6
+    },
+    {
+      "true_id": 8,
+      "pred_id": 7,
+      "true_letter": "\u0630",
+      "pred_letter": "\u062f",
+      "true_name": "dhaal",
+      "pred_name": "daal",
+      "count": 6
+    },
+    {
+      "true_id": 3,
+      "pred_id": 24,
+      "true_letter": "\u062b",
+      "pred_letter": "\u0646",
+      "true_name": "thaa",
+      "pred_name": "noon",
+      "count": 5
+    },
+    {
+      "true_id": 4,
+      "pred_id": 5,
+      "true_letter": "\u062c",
+      "pred_letter": "\u062d",
+      "true_name": "jeem",
+      "pred_name": "haa",
+      "count": 5
+    },
+    {
+      "true_id": 14,
+      "pred_id": 13,
+      "true_letter": "\u0636",
+      "pred_letter": "\u0635",
+      "true_name": "daad",
+      "pred_name": "saad",
+      "count": 5
+    },
+    {
+      "true_id": 26,
+      "pred_id": 25,
+      "true_letter": "\u0648",
+      "pred_letter": "\u0647",
+      "true_name": "waaw",
+      "pred_name": "haa_end",
+      "count": 5
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "model_architecture": "ArabicCNN",
+  "num_classes": 28,
+  "input_size": [
+    1,
+    32,
+    32
+  ],
+  "training_dataset": "Hijja Children Handwriting (Isolated)",
+  "train_samples_count": 8632,
+  "val_samples_count": 1840,
+  "test_samples_count": 1879,
+  "batch_size": 64,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "optimizer": "AdamW",
+  "scheduler": "ReduceLROnPlateau(mode='max', factor=0.5, patience=2)",
+  "early_stopping_patience": 6,
+  "max_epochs": 25,
+  "random_seed": 42,
+  "device": "cpu",
+  "augmentation": {
+    "rotation_degrees": 10.0,
+    "translation_pixels": 3,
+    "scale_range": [
+      0.9,
+      1.1
+    ],
+    "noise_std": 0.03,
+    "horizontal_flip": false,
+    "vertical_flip": false
+  }
+}

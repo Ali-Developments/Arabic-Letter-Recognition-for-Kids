@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تعرّف الحروف العربية للأطفال | Arabic Handwriting AI Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1>الذكاء الاصطناعي للتعرّف على خط يد الأطفال</h1>
+    <p>Isolated Arabic Handwritten Letter Recognition — Camera & Game Reaction Demo</p>
+  </header>
+
+  <main class="main-container">
+    <!-- Left Column: Camera Capture & Game Target -->
+    <section class="card">
+      <h2 class="card-title">
+        <span>📷</span> كاميرا الالتقاط والتحدي (Camera & Challenge)
+      </h2>
+
+      <!-- Game Target Box -->
+      <div class="game-target-box">
+        <div class="label">تحدي اللعبة (Target Letter)</div>
+        <div id="target-letter" class="target-letter">ب</div>
+        <div id="target-name" class="target-name">اكتب الحرف: باء (Baa)</div>
+      </div>
+
+      <!-- Camera Frame -->
+      <div class="camera-container" id="camera-box">
+        <video id="video-feed" autoplay playsinline muted style="display: none;"></video>
+        <img id="captured-image" alt="Captured Arabic Letter" style="display: none;">
+        <canvas id="capture-canvas" style="display: none;"></canvas>
+        <div class="guide-frame" id="guide-frame" style="display: none;"></div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls-group">
+        <button id="btn-start-camera" class="btn-primary">
+          <span>📹</span> فتح الكاميرا (Open Camera)
+        </button>
+        <button id="btn-capture" class="btn-secondary" disabled>
+          <span>📸</span> التقاط (Capture)
+        </button>
+        <button id="btn-retake" class="btn-secondary" disabled>
+          <span>🔄</span> إعادة (Retake)
+        </button>
+        <button id="btn-recognize" class="btn-primary" disabled>
+          <span>✨</span> تعرّف (Recognize)
+        </button>
+      </div>
+
+      <div class="controls-group" style="margin-top: 10px;">
+        <label for="file-input" class="btn-secondary" style="flex: 1; text-align: center; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+          <span>📁</span> رفع صورة للتجربة (Upload Image)
+        </label>
+        <input type="file" id="file-input" accept="image/*" style="display: none;">
+
+        <button id="btn-next-letter" class="btn-secondary" style="flex: 1;">
+          <span>🎲</span> حرف آخر (Next Letter)
+        </button>
+      </div>
+    </section>
+
+    <!-- Right Column: AI Result & Game Reaction -->
+    <section class="card result-card">
+      <div>
+        <h2 class="card-title">
+          <span>🎮</span> تفاعل اللعبة والنتيجة (Game Reaction)
+        </h2>
+
+        <!-- Reaction Banner -->
+        <div id="reaction-banner" class="reaction-banner neutral">
+          <div id="reaction-icon" class="reaction-icon">🎮</div>
+          <div id="reaction-title" class="reaction-title">بانتظار التقاط الحرف...</div>
+          <div id="reaction-desc" class="reaction-desc">اكتب الحرف المطلوب على ورقة بيضاء وضعه داخل المربع.</div>
+        </div>
+
+        <!-- Technical Prediction Details -->
+        <div class="prediction-details">
+          <div class="stat-item">
+            <span class="stat-label">الحرف المكتشف (Detected)</span>
+            <span id="stat-detected-char" class="stat-value arabic-large">-</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">نسبة الثقة (Confidence)</span>
+            <span id="stat-confidence" class="stat-value">-</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">زمن الاستجابة (Latency)</span>
+            <span id="stat-latency" class="stat-value">-</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">الحالة (Status)</span>
+            <span id="stat-accepted" class="stat-value">-</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Candidates -->
+      <div>
+        <h3 style="font-size: 1rem; color: var(--text-muted); margin-bottom: 10px;">أعلى الاحتمالات (Top Candidates)</h3>
+        <ul id="candidate-list" class="candidate-list">
+          <li class="candidate-item" style="color: var(--text-muted); justify-content: center;">لا توجد تنبؤات بعد</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="api.js"></script>
+  <script src="camera.js"></script>
+</body>
+</html>

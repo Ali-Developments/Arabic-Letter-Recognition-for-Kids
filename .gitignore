@@ -1,0 +1,56 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# IDE & Editor configurations
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Large datasets (raw/processed image dumps should be downloaded via preparation scripts)
+ml/data/raw/
+ml/data/processed/
+ml/data/external/
+*.zip
+*.tar.gz
+
+# Model checkpoints: Track ONLY the lightweight final candidate model for out-of-the-box inference
+ml/models/*
+!ml/models/final_candidate_model.pt
+!ml/models/.gitkeep
+
+# Logs and temporary files
+*.log
+scratch/
+tmp/
+temp/
